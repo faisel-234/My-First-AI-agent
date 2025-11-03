@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noor Modern Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+            },
+             typography: ({ theme }) => ({
+               DEFAULT: {
+                css: {
+                  '--tw-prose-body': theme('colors.gray[700]'),
+                  '--tw-prose-headings': theme('colors.gray[900]'),
+                  '--tw-prose-lead': theme('colors.gray[600]'),
+                  '--tw-prose-links': theme('colors.indigo[600]'),
+                  '--tw-prose-bold': theme('colors.gray[900]'),
+                  '--tw-prose-counters': theme('colors.gray[500]'),
+                  '--tw-prose-bullets': theme('colors.gray[300]'),
+                  '--tw-prose-hr': theme('colors.gray[200]'),
+                  '--tw-prose-quotes': theme('colors.gray[900]'),
+                  '--tw-prose-quote-borders': theme('colors.gray[200]'),
+                  '--tw-prose-captions': theme('colors.gray[500]'),
+                  '--tw-prose-code': theme('colors.indigo[600]'),
+                  '--tw-prose-pre-code': theme('colors.gray[700]'),
+                  '--tw-prose-pre-bg': theme('colors.gray[100]'),
+                  '--tw-prose-th-borders': theme('colors.gray[300]'),
+                  '--tw-prose-td-borders': theme('colors.gray[200]'),
+                },
+              },
+              invert: {
+                css: {
+                  '--tw-prose-body': theme('colors.gray[300]'),
+                  '--tw-prose-headings': theme('colors.white'),
+                  '--tw-prose-lead': theme('colors.gray[400]'),
+                  '--tw-prose-links': theme('colors.indigo[400]'),
+                  '--tw-prose-bold': theme('colors.white'),
+                  '--tw-prose-counters': theme('colors.gray[400]'),
+                  '--tw-prose-bullets': theme('colors.gray[600]'),
+                  '--tw-prose-hr': theme('colors.gray[700]'),
+                  '--tw-prose-quotes': theme('colors.gray[100]'),
+                  '--tw-prose-quote-borders': theme('colors.gray[700]'),
+                  '--tw-prose-captions': theme('colors.gray[400]'),
+                  '--tw-prose-code': theme('colors.indigo[400]'),
+                  '--tw-prose-pre-code': theme('colors.gray[300]'),
+                  '--tw-prose-pre-bg': 'rgb(0 0 0 / 20%)',
+                  '--tw-prose-th-borders': theme('colors.gray[600]'),
+                  '--tw-prose-td-borders': theme('colors.gray[700]'),
+                },
+              },
+            }),
+          },
+        },
+        plugins: [
+            require('@tailwindcss/typography'),
+        ],
+      }
+    </script>
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@0.15.0",
+    "react-markdown": "https://aistudiocdn.com/react-markdown@^9.0.1",
+    "remark-gfm": "https://aistudiocdn.com/remark-gfm@^4.0.0"
+  }
+}
+</script>
+<style>
+  /* Custom scrollbar for a more polished look */
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+    .dark ::-webkit-scrollbar-track {
+        background: #1f2937; /* gray-800 */
+    }
+    .dark ::-webkit-scrollbar-thumb {
+        background: #4b5563; /* gray-600 */
+        border-radius: 4px;
+    }
+    .dark ::-webkit-scrollbar-thumb:hover {
+        background: #6b7280; /* gray-500 */
+    }
+    html:not(.dark) ::-webkit-scrollbar-track {
+        background: #e5e7eb; /* gray-200 */
+    }
+    html:not(.dark) ::-webkit-scrollbar-thumb {
+        background: #9ca3af; /* gray-400 */
+        border-radius: 4px;
+    }
+    html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+        background: #6b7280; /* gray-500 */
+    }
+</style>
+</head>
+  <body class="bg-white dark:bg-gray-800">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
